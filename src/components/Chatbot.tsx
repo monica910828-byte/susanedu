@@ -65,14 +65,22 @@ export const Chatbot: React.FC = () => {
       
       <div className="chatbot-messages">
         {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.role}`}>
-            <div className="message-text">{msg.content}</div>
+          <div key={index} className={`message-row ${msg.role}`}>
+            {msg.role === 'assistant' && (
+              <img src="/fish.png" alt="프로필" className="assistant-avatar" />
+            )}
+            <div className={`message ${msg.role}`}>
+              <div className="message-text">{msg.content}</div>
+            </div>
           </div>
         ))}
         {isLoading && (
-          <div className="message assistant">
-            <div className="loading-dots">
-              <span></span><span></span><span></span>
+          <div className="message-row assistant">
+            <img src="/fish.png" alt="프로필" className="assistant-avatar" />
+            <div className="message assistant">
+              <div className="loading-dots">
+                <span></span><span></span><span></span>
+              </div>
             </div>
           </div>
         )}
