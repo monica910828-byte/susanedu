@@ -22,7 +22,7 @@ export default async function handler(req: Request) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-5.4-mini',
+        model: 'gpt-4o-mini',
         messages,
       }),
     });
